@@ -80,13 +80,13 @@ remove("train", "sample")
 fullSetMelted <- melt(fullSet, id.vars = c("ActivityID", "ActivityName", "Subject"))
 fullSetMean   <- dcast(fullSetMelted, Subject + ActivityID + ActivityName ~ variable, mean)
 
-write.table(fullSetMean, "tidy.txt", row.names = FALSE, quote = FALSE, col.names = FALSE)
+write.table(fullSetMean, "tidy.txt", row.names = FALSE, quote = FALSE)
 
 print("Complete. File [tidy.txt] saved.")
 fullSetMean
 ####  END OF FILE                        ####
 
 }
-  
+
 ## Run Function
 fullSetMean<-run_analysis()
