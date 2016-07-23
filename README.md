@@ -1,4 +1,4 @@
-# Courser Cleaning Data Assignment
+# Coursera Cleaning Data Assignment
 
 #### To test the run_analysis.R script please complete the following: 
 
@@ -9,6 +9,6 @@
 ```R 
 source("run_analysis.R") 
 ```
-  - look for the file called "fullSetMean.txt" 
+  - look for the file called "tidy.txt" 
 
 [Assignment Data]: <https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip>
