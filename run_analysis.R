@@ -40,7 +40,7 @@ names(labelsSample)         <- c("ActivityID", "ActivityName", "Subject")
 
 ##    CREATE TABLE WITH REQUIRED VARIABLED ##
 
-allMeans <- allVariables[grep(".*mean*.", allVariables$V2), ]
+allMeans <- allVariables[ intersect( grep("(mean)", allVariables$V2), grep("(meanFreq)", allVariables$V2, invert = TRUE))  , ]
 allStds<-allVariables[grep(".*std*.", allVariables$V2), ]
 
 allMeanAndStds <- allMeans$V1
@@ -80,6 +80,7 @@ remove("train", "sample")
 fullSetMelted <- melt(fullSet, id.vars = c("ActivityID", "ActivityName", "Subject"))
 fullSetMean   <- dcast(fullSetMelted, Subject + ActivityID + ActivityName ~ variable, mean)
 
+fullSetMean$ActivityName <- NULL
 write.table(fullSetMean, "tidy.txt", row.names = FALSE, quote = FALSE)
 
 print("Complete. File [tidy.txt] saved.")
